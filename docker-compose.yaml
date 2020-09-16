@@ -1,0 +1,12 @@
+version: '3'
+services:
+  box:
+    container_name: box
+    build: .
+    restart: on-failure
+    volumes:
+      - .:/1
+    working_dir: /1
+    ports:
+      - "8000:8000"
+    command: sh -c "php composer.phar install && ./symfony server:start"
