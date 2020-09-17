@@ -1,16 +1,16 @@
-######what:
+###### what:
 
 basic payment system api 
 
-######how:
+###### how:
 
 * clone
 * `docker-compose up`
 * it's alive at http://localhost:8000
 * ^C when done
 
-######API:
+###### API:
 
 @see `api.postman_collection.json`
 
-######no license
+###### no license
