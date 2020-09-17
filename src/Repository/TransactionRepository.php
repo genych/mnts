@@ -19,32 +19,33 @@ class TransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, Transaction::class);
     }
 
-    // /**
-    //  * @return Transaction[] Returns an array of Transaction objects
-    //  */
-    /*
-    public function findByExampleField($value)
+// TODO: maybe use EntityRepository::count
+    public function countByAccount(int $accountId): int
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = 'select count(1) as c from App\\Entity\\Transaction t
+            where t.from_account = :accountId OR t.to_account = :accountId';
 
-    /*
-    public function findOneBySomeField($value): ?Transaction
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return (int)$this->_em->createQuery($query)
+            ->setParameter('accountId', $accountId)
+            ->getSingleScalarResult();
     }
-    */
+
+    /**
+     * @param int $accountId
+     * @param int $limit
+     * @param int $offset
+     * @return Transaction[]
+     */
+    public function findByAccount(int $accountId, int $limit, int $offset): array
+    {
+        $query = 'select t from App\\Entity\\Transaction t
+            where t.from_account = :accountId OR t.to_account = :accountId
+            order by t.dt desc';
+
+        return $this->_em->createQuery($query)
+            ->setParameter('accountId', $accountId)
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getResult();
+    }
 }

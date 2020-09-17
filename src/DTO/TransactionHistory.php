@@ -10,18 +10,30 @@ class TransactionHistory
     /** @var Transaction[] */
     private array $history;
 
+    private int   $id;
+
     /**
+     * @param int           $id
      * @param int           $limit
      * @param int           $offset
      * @param int           $total
      * @param Transaction[] $history
      */
-    public function __construct(int $limit, int $offset, int $total, array $history)
+    public function __construct(int $id, int $limit, int $offset, int $total, array $history)
     {
+        $this->id = $id;
         $this->limit   = $limit;
         $this->offset  = $offset;
         $this->total   = $total;
         $this->history = $history;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**

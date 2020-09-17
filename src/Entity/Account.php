@@ -73,4 +73,9 @@ class Account
         return $this->client;
     }
 
+    public function updateBalance(int $amount): self
+    {
+        $this->balance += $amount;
+        return $this;
+    }
 }
