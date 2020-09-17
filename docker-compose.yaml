@@ -9,4 +9,4 @@ services:
     working_dir: /1
     ports:
       - "8000:8000"
-    command: sh -c "php composer.phar install && ./symfony server:start"
+    command: sh -c "php composer.phar install && bin/console do:mi:mi -n && bin/console do:fi:lo -n && ./symfony server:start"
