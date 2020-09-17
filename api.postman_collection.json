@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "c7e98cbb-ffdb-4bd4-8cce-7754a09dc095",
+		"name": "mint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bad client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/client/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "good client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/client/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bad account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/account/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"account",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "good account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/account/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"account",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bad history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/account/0/history",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"account",
+						"0",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "good history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/account/1/history?offset=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"account",
+						"1",
+						"history"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "good transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sender\": 1,\n  \"receiver\": 2,\n  \"amount\": \"1.01\",\n  \"currency\": \"USD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bad transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sender\": 1,\n  \"receiver\": 2,\n  \"amount\": \"1.01\",\n  \"currency\": \"idk\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
