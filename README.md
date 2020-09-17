@@ -13,4 +13,10 @@ basic payment system api
 
 @see `api.postman_collection.json`
 
+###### todo:
+
+* meaningful tests
+* non-root container user
+* wtf with sqlite CHARs?
+
 ###### no license
