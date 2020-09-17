@@ -133,6 +133,7 @@ class AccountingService
         $this->em->beginTransaction();
         try {
             $this->em->flush();
+            $this->em->commit();
         } catch (Throwable $e) {
             $this->em->rollback();
             return null;
