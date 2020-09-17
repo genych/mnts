@@ -35,13 +35,15 @@ class Client
     private Collection $accounts;
 
     /**
-     * @param string      $firstName
-     * @param string|null $lastName
+     * @ORM\Column(type="string", length=3)
      */
-    public function __construct(string $firstName, ?string $lastName)
+    private string $country;
+
+    public function __construct(string $firstName, ?string $lastName, string $country)
     {
         $this->firstName = $firstName;
         $this->lastName  = $lastName;
+        $this->country = $country;
         $this->accounts = new ArrayCollection();
     }
 
@@ -93,6 +95,11 @@ class Client
         }
 
         return $this;
+    }
+
+    public function getCountry(): string
+    {
+        return $this->country;
     }
 
 }
